@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.book.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.book.model.SysUser" >
+    <constructor >
+      <idArg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PASSWORD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="salt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createdate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, username, PASSWORD, salt, createdate
+  </sql>
+  <select id="userlogin" resultType="com.zking.asset.book.model.SysUser">
+    SELECT <include refid="Base_Column_List"/> FROM t_sys_user WHERE username=#{username}
+  </select>
+  <select id="findRoles" resultType="string">
+    SELECT r.`rolename` FROM t_sys_user u,t_sys_user_role ur,t_sys_role r WHERE
+ u.`userid`=ur.`userid` AND ur.`roleid`=r.`roleid` AND u.`username`=#{username}
+  </select>
+  <select id="findPermissions" resultType="string">
+    SELECT p.href FROM t_sys_user u,t_sys_user_role ur,t_sys_role r,
+t_sys_role_permission rp, t_sys_permission p WHERE
+u.`userid`=ur.`userid`AND ur.`roleid`=r.`roleid` AND r.`roleid`=rp.roleid AND rp.perid=p.perid
+AND u.`username`=#{username}
+  </select>
+
+</mapper>

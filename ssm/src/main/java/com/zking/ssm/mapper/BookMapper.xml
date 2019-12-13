@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssm.mapper.BookMapper" >
+ <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+  <!--eviction="FIFO"  回收策略为先进先出-->
+  <!--flushInterval="60000" 自动刷新时间60s-->
+  <!--size="512" 最多缓存512个引用对象-->
+  <!--readOnly="true"  只读-->
+    <property name="timeToIdleSeconds" value="3600"/>
+    <property name="timeToLiveSeconds" value="3600"/>
+    <property name="maxEntriesLocalHeap" value="1000"/>
+    <property name="maxEntriesLocalDisk" value="10000000"/>
+    <property name="memoryStoreEvictionPolicy" value="LRU"/>
+ </cache>
+  <resultMap id="BaseResultMap" type="com.zking.ssm.model.Book" >
+    <constructor >
+      <idArg column="bid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="bname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="btype" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bid, bname, btype
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from book
+    where bid = #{bid,jdbcType=INTEGER}
+  </select>
+    <select  useCache="false" id="querybook" resultType="com.zking.ssm.model.Book">
+        select
+        <include refid="Base_Column_List" />
+        from book
+        where bid = #{bid,jdbcType=INTEGER}
+    </select>
+    <select id="querybookPager" resultType="com.zking.ssm.model.Book" parameterType="com.zking.ssm.model.Book">
+        select
+        <include refid="Base_Column_List" />
+        from book
+        where  1=1
+        <if test="bname !=''">
+        AND    bname like   concat(concat("%",#{bname}),"%")
+        </if>
+
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from book
+    where bid = #{bid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssm.model.Book" >
+    insert into book ( bname, btype
+      )
+    values ( #{bname,jdbcType=VARCHAR}, #{btype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssm.model.Book" >
+    insert into book
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        bid,
+      </if>
+      <if test="bname != null" >
+        bname,
+      </if>
+      <if test="btype != null" >
+        btype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="btype != null" >
+        #{btype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssm.model.Book" >
+    update book
+    <set >
+      <if test="bname != null" >
+        bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="btype != null" >
+        btype = #{btype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssm.model.Book" >
+    update book
+    set bname = #{bname,jdbcType=VARCHAR},
+      btype = #{btype,jdbcType=VARCHAR}
+    where bid = #{bid,jdbcType=INTEGER}
+  </update>
+
+
+
+</mapper>

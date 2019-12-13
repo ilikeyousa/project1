@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.dictionarydictionary.mapper.DictMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.dictionarydictionary.model.Dict" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dictype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dicremark" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dicname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dicvalue" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, dictype, dicremark, dicname, dicvalue
+  </sql>
+
+  <insert id="insert" parameterType="com.zking.asset.dictionarydictionary.model.Dict" >
+    insert into t_dict (id, dictype, dicremark, 
+      dicname, dicvalue)
+    values (#{id,jdbcType=VARCHAR}, #{dictype,jdbcType=VARCHAR}, #{dicremark,jdbcType=VARCHAR}, 
+      #{dicname,jdbcType=VARCHAR}, #{dicvalue,jdbcType=VARCHAR})
+  </insert>
+  <select id="queryDictPages" resultType="com.zking.asset.dictionarydictionary.model.Dict">
+    SELECT <include refid="Base_Column_List"/> FROM t_dict
+  </select>
+
+</mapper>

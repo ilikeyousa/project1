@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.book.mapper.BookMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.book.model.Book" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="bookname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="booktype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bookimage" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, bookname, price, booktype, bookimage
+  </sql>
+  <insert id="BookAdd" parameterType="com.zking.asset.book.model.Book">
+    INSERT INTO book (bookname,price,booktype) values (#{bookname},#{price},#{booktype})
+  </insert>
+  <update id="updateBookImageById" parameterType="com.zking.asset.book.model.Book">
+    update book set bookimage=#{bookimage} where id=#{id}
+  </update>
+  <select id="queryBookList" resultType="com.zking.asset.book.model.Book">
+    SELECT <include refid="Base_Column_List"/> FROM book ORDER BY id DESC
+  </select>
+
+</mapper>

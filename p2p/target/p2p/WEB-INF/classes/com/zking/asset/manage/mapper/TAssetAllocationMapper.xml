@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetAllocationMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAssetAllocation" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="djbh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="djmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ybm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="yzrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ycfd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="drbm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="xzrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="xcfd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dbrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="dbly" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="sfsh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="shr" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, djbh, djmc, ybm, yzrr, ycfd, drbm, xzrr, xcfd, dbrq, dbly, lrr, lrrq, sfsh, shr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset_allocation
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset_allocation
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAssetAllocation" >
+    insert into t_asset_allocation (id, djbh, djmc, 
+      ybm, yzrr, ycfd, drbm, 
+      xzrr, xcfd, dbrq, 
+      dbly, lrr, lrrq, 
+      sfsh, shr)
+    values (#{id,jdbcType=VARCHAR}, #{djbh,jdbcType=VARCHAR}, #{djmc,jdbcType=VARCHAR}, 
+      #{ybm,jdbcType=VARCHAR}, #{yzrr,jdbcType=VARCHAR}, #{ycfd,jdbcType=VARCHAR}, #{drbm,jdbcType=VARCHAR}, 
+      #{xzrr,jdbcType=VARCHAR}, #{xcfd,jdbcType=VARCHAR}, #{dbrq,jdbcType=TIMESTAMP}, 
+      #{dbly,jdbcType=VARCHAR}, #{lrr,jdbcType=VARCHAR}, #{lrrq,jdbcType=TIMESTAMP}, 
+      #{sfsh,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAssetAllocation" >
+    insert into t_asset_allocation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="djbh != null" >
+        djbh,
+      </if>
+      <if test="djmc != null" >
+        djmc,
+      </if>
+      <if test="ybm != null" >
+        ybm,
+      </if>
+      <if test="yzrr != null" >
+        yzrr,
+      </if>
+      <if test="ycfd != null" >
+        ycfd,
+      </if>
+      <if test="drbm != null" >
+        drbm,
+      </if>
+      <if test="xzrr != null" >
+        xzrr,
+      </if>
+      <if test="xcfd != null" >
+        xcfd,
+      </if>
+      <if test="dbrq != null" >
+        dbrq,
+      </if>
+      <if test="dbly != null" >
+        dbly,
+      </if>
+      <if test="lrr != null" >
+        lrr,
+      </if>
+      <if test="lrrq != null" >
+        lrrq,
+      </if>
+      <if test="sfsh != null" >
+        sfsh,
+      </if>
+      <if test="shr != null" >
+        shr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="djbh != null" >
+        #{djbh,jdbcType=VARCHAR},
+      </if>
+      <if test="djmc != null" >
+        #{djmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ybm != null" >
+        #{ybm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzrr != null" >
+        #{yzrr,jdbcType=VARCHAR},
+      </if>
+      <if test="ycfd != null" >
+        #{ycfd,jdbcType=VARCHAR},
+      </if>
+      <if test="drbm != null" >
+        #{drbm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzrr != null" >
+        #{xzrr,jdbcType=VARCHAR},
+      </if>
+      <if test="xcfd != null" >
+        #{xcfd,jdbcType=VARCHAR},
+      </if>
+      <if test="dbrq != null" >
+        #{dbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dbly != null" >
+        #{dbly,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfsh != null" >
+        #{sfsh,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        #{shr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAssetAllocation" >
+    update t_asset_allocation
+    <set >
+      <if test="djbh != null" >
+        djbh = #{djbh,jdbcType=VARCHAR},
+      </if>
+      <if test="djmc != null" >
+        djmc = #{djmc,jdbcType=VARCHAR},
+      </if>
+      <if test="ybm != null" >
+        ybm = #{ybm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzrr != null" >
+        yzrr = #{yzrr,jdbcType=VARCHAR},
+      </if>
+      <if test="ycfd != null" >
+        ycfd = #{ycfd,jdbcType=VARCHAR},
+      </if>
+      <if test="drbm != null" >
+        drbm = #{drbm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzrr != null" >
+        xzrr = #{xzrr,jdbcType=VARCHAR},
+      </if>
+      <if test="xcfd != null" >
+        xcfd = #{xcfd,jdbcType=VARCHAR},
+      </if>
+      <if test="dbrq != null" >
+        dbrq = #{dbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dbly != null" >
+        dbly = #{dbly,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        lrr = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfsh != null" >
+        sfsh = #{sfsh,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        shr = #{shr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAssetAllocation" >
+    update t_asset_allocation
+    set djbh = #{djbh,jdbcType=VARCHAR},
+      djmc = #{djmc,jdbcType=VARCHAR},
+      ybm = #{ybm,jdbcType=VARCHAR},
+      yzrr = #{yzrr,jdbcType=VARCHAR},
+      ycfd = #{ycfd,jdbcType=VARCHAR},
+      drbm = #{drbm,jdbcType=VARCHAR},
+      xzrr = #{xzrr,jdbcType=VARCHAR},
+      xcfd = #{xcfd,jdbcType=VARCHAR},
+      dbrq = #{dbrq,jdbcType=TIMESTAMP},
+      dbly = #{dbly,jdbcType=VARCHAR},
+      lrr = #{lrr,jdbcType=VARCHAR},
+      lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      sfsh = #{sfsh,jdbcType=VARCHAR},
+      shr = #{shr,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

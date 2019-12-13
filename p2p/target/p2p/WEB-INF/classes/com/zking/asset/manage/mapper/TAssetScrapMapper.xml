@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetScrapMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAssetScrap" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcbh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="clfs" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bfly" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="clrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="hscz" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="zrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="shr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="bfsm" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zcbh, zcmc, clfs, bfly, clrq, hscz, zrr, lrr, shr, lrrq, bfsm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset_scrap
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset_scrap
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAssetScrap" >
+    insert into t_asset_scrap (id, zcbh, zcmc, 
+      clfs, bfly, clrq, 
+      hscz, zrr, lrr, shr, 
+      lrrq, bfsm)
+    values (#{id,jdbcType=VARCHAR}, #{zcbh,jdbcType=VARCHAR}, #{zcmc,jdbcType=VARCHAR}, 
+      #{clfs,jdbcType=VARCHAR}, #{bfly,jdbcType=VARCHAR}, #{clrq,jdbcType=TIMESTAMP}, 
+      #{hscz,jdbcType=REAL}, #{zrr,jdbcType=VARCHAR}, #{lrr,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, 
+      #{lrrq,jdbcType=TIMESTAMP}, #{bfsm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAssetScrap" >
+    insert into t_asset_scrap
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zcbh != null" >
+        zcbh,
+      </if>
+      <if test="zcmc != null" >
+        zcmc,
+      </if>
+      <if test="clfs != null" >
+        clfs,
+      </if>
+      <if test="bfly != null" >
+        bfly,
+      </if>
+      <if test="clrq != null" >
+        clrq,
+      </if>
+      <if test="hscz != null" >
+        hscz,
+      </if>
+      <if test="zrr != null" >
+        zrr,
+      </if>
+      <if test="lrr != null" >
+        lrr,
+      </if>
+      <if test="shr != null" >
+        shr,
+      </if>
+      <if test="lrrq != null" >
+        lrrq,
+      </if>
+      <if test="bfsm != null" >
+        bfsm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zcbh != null" >
+        #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="clfs != null" >
+        #{clfs,jdbcType=VARCHAR},
+      </if>
+      <if test="bfly != null" >
+        #{bfly,jdbcType=VARCHAR},
+      </if>
+      <if test="clrq != null" >
+        #{clrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hscz != null" >
+        #{hscz,jdbcType=REAL},
+      </if>
+      <if test="zrr != null" >
+        #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bfsm != null" >
+        #{bfsm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAssetScrap" >
+    update t_asset_scrap
+    <set >
+      <if test="zcbh != null" >
+        zcbh = #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        zcmc = #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="clfs != null" >
+        clfs = #{clfs,jdbcType=VARCHAR},
+      </if>
+      <if test="bfly != null" >
+        bfly = #{bfly,jdbcType=VARCHAR},
+      </if>
+      <if test="clrq != null" >
+        clrq = #{clrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hscz != null" >
+        hscz = #{hscz,jdbcType=REAL},
+      </if>
+      <if test="zrr != null" >
+        zrr = #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        lrr = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        shr = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bfsm != null" >
+        bfsm = #{bfsm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAssetScrap" >
+    update t_asset_scrap
+    set zcbh = #{zcbh,jdbcType=VARCHAR},
+      zcmc = #{zcmc,jdbcType=VARCHAR},
+      clfs = #{clfs,jdbcType=VARCHAR},
+      bfly = #{bfly,jdbcType=VARCHAR},
+      clrq = #{clrq,jdbcType=TIMESTAMP},
+      hscz = #{hscz,jdbcType=REAL},
+      zrr = #{zrr,jdbcType=VARCHAR},
+      lrr = #{lrr,jdbcType=VARCHAR},
+      shr = #{shr,jdbcType=VARCHAR},
+      lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      bfsm = #{bfsm,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

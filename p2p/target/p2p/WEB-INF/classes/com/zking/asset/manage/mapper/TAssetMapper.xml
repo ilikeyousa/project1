@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAsset" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcbh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zclb" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zczt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcsl" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="jldw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcyz" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="xcqd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sybm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cfdd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zynx" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="zcpp" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="jbpz" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ggxh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sbgl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fphm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="scdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ghdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bxnx" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gmrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="scrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="lrrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="zrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zhzt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zp" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zcbh, zclb, zcmc, zczt, zcsl, jldw, zcyz, xcqd, sybm, cfdd, zynx, zcpp, jbpz, 
+    ggxh, sbgl, fphm, scdw, ghdw, bxnx, gmrq, scrq, lrrq, zrr, lrr, zhzt, zp
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAsset" >
+    insert into t_asset (id, zcbh, zclb, 
+      zcmc, zczt, zcsl, jldw, 
+      zcyz, xcqd, sybm, cfdd, 
+      zynx, zcpp, jbpz, ggxh, 
+      sbgl, fphm, scdw, ghdw, 
+      bxnx, gmrq, scrq, 
+      lrrq, zrr, lrr, zhzt, 
+      zp)
+    values (#{id,jdbcType=VARCHAR}, #{zcbh,jdbcType=VARCHAR}, #{zclb,jdbcType=VARCHAR}, 
+      #{zcmc,jdbcType=VARCHAR}, #{zczt,jdbcType=VARCHAR}, #{zcsl,jdbcType=INTEGER}, #{jldw,jdbcType=VARCHAR}, 
+      #{zcyz,jdbcType=REAL}, #{xcqd,jdbcType=VARCHAR}, #{sybm,jdbcType=VARCHAR}, #{cfdd,jdbcType=VARCHAR}, 
+      #{zynx,jdbcType=INTEGER}, #{zcpp,jdbcType=VARCHAR}, #{jbpz,jdbcType=VARCHAR}, #{ggxh,jdbcType=VARCHAR}, 
+      #{sbgl,jdbcType=VARCHAR}, #{fphm,jdbcType=VARCHAR}, #{scdw,jdbcType=VARCHAR}, #{ghdw,jdbcType=VARCHAR}, 
+      #{bxnx,jdbcType=VARCHAR}, #{gmrq,jdbcType=TIMESTAMP}, #{scrq,jdbcType=TIMESTAMP}, 
+      #{lrrq,jdbcType=TIMESTAMP}, #{zrr,jdbcType=VARCHAR}, #{lrr,jdbcType=VARCHAR}, #{zhzt,jdbcType=VARCHAR}, 
+      #{zp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAsset" >
+    insert into t_asset
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zcbh != null" >
+        zcbh,
+      </if>
+      <if test="zclb != null" >
+        zclb,
+      </if>
+      <if test="zcmc != null" >
+        zcmc,
+      </if>
+      <if test="zczt != null" >
+        zczt,
+      </if>
+      <if test="zcsl != null" >
+        zcsl,
+      </if>
+      <if test="jldw != null" >
+        jldw,
+      </if>
+      <if test="zcyz != null" >
+        zcyz,
+      </if>
+      <if test="xcqd != null" >
+        xcqd,
+      </if>
+      <if test="sybm != null" >
+        sybm,
+      </if>
+      <if test="cfdd != null" >
+        cfdd,
+      </if>
+      <if test="zynx != null" >
+        zynx,
+      </if>
+      <if test="zcpp != null" >
+        zcpp,
+      </if>
+      <if test="jbpz != null" >
+        jbpz,
+      </if>
+      <if test="ggxh != null" >
+        ggxh,
+      </if>
+      <if test="sbgl != null" >
+        sbgl,
+      </if>
+      <if test="fphm != null" >
+        fphm,
+      </if>
+      <if test="scdw != null" >
+        scdw,
+      </if>
+      <if test="ghdw != null" >
+        ghdw,
+      </if>
+      <if test="bxnx != null" >
+        bxnx,
+      </if>
+      <if test="gmrq != null" >
+        gmrq,
+      </if>
+      <if test="scrq != null" >
+        scrq,
+      </if>
+      <if test="lrrq != null" >
+        lrrq,
+      </if>
+      <if test="zrr != null" >
+        zrr,
+      </if>
+      <if test="lrr != null" >
+        lrr,
+      </if>
+      <if test="zhzt != null" >
+        zhzt,
+      </if>
+      <if test="zp != null" >
+        zp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zcbh != null" >
+        #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zclb != null" >
+        #{zclb,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zczt != null" >
+        #{zczt,jdbcType=VARCHAR},
+      </if>
+      <if test="zcsl != null" >
+        #{zcsl,jdbcType=INTEGER},
+      </if>
+      <if test="jldw != null" >
+        #{jldw,jdbcType=VARCHAR},
+      </if>
+      <if test="zcyz != null" >
+        #{zcyz,jdbcType=REAL},
+      </if>
+      <if test="xcqd != null" >
+        #{xcqd,jdbcType=VARCHAR},
+      </if>
+      <if test="sybm != null" >
+        #{sybm,jdbcType=VARCHAR},
+      </if>
+      <if test="cfdd != null" >
+        #{cfdd,jdbcType=VARCHAR},
+      </if>
+      <if test="zynx != null" >
+        #{zynx,jdbcType=INTEGER},
+      </if>
+      <if test="zcpp != null" >
+        #{zcpp,jdbcType=VARCHAR},
+      </if>
+      <if test="jbpz != null" >
+        #{jbpz,jdbcType=VARCHAR},
+      </if>
+      <if test="ggxh != null" >
+        #{ggxh,jdbcType=VARCHAR},
+      </if>
+      <if test="sbgl != null" >
+        #{sbgl,jdbcType=VARCHAR},
+      </if>
+      <if test="fphm != null" >
+        #{fphm,jdbcType=VARCHAR},
+      </if>
+      <if test="scdw != null" >
+        #{scdw,jdbcType=VARCHAR},
+      </if>
+      <if test="ghdw != null" >
+        #{ghdw,jdbcType=VARCHAR},
+      </if>
+      <if test="bxnx != null" >
+        #{bxnx,jdbcType=VARCHAR},
+      </if>
+      <if test="gmrq != null" >
+        #{gmrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scrq != null" >
+        #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lrrq != null" >
+        #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zrr != null" >
+        #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="zhzt != null" >
+        #{zhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null" >
+        #{zp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAsset" >
+    update t_asset
+    <set >
+      <if test="zcbh != null" >
+        zcbh = #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zclb != null" >
+        zclb = #{zclb,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        zcmc = #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zczt != null" >
+        zczt = #{zczt,jdbcType=VARCHAR},
+      </if>
+      <if test="zcsl != null" >
+        zcsl = #{zcsl,jdbcType=INTEGER},
+      </if>
+      <if test="jldw != null" >
+        jldw = #{jldw,jdbcType=VARCHAR},
+      </if>
+      <if test="zcyz != null" >
+        zcyz = #{zcyz,jdbcType=REAL},
+      </if>
+      <if test="xcqd != null" >
+        xcqd = #{xcqd,jdbcType=VARCHAR},
+      </if>
+      <if test="sybm != null" >
+        sybm = #{sybm,jdbcType=VARCHAR},
+      </if>
+      <if test="cfdd != null" >
+        cfdd = #{cfdd,jdbcType=VARCHAR},
+      </if>
+      <if test="zynx != null" >
+        zynx = #{zynx,jdbcType=INTEGER},
+      </if>
+      <if test="zcpp != null" >
+        zcpp = #{zcpp,jdbcType=VARCHAR},
+      </if>
+      <if test="jbpz != null" >
+        jbpz = #{jbpz,jdbcType=VARCHAR},
+      </if>
+      <if test="ggxh != null" >
+        ggxh = #{ggxh,jdbcType=VARCHAR},
+      </if>
+      <if test="sbgl != null" >
+        sbgl = #{sbgl,jdbcType=VARCHAR},
+      </if>
+      <if test="fphm != null" >
+        fphm = #{fphm,jdbcType=VARCHAR},
+      </if>
+      <if test="scdw != null" >
+        scdw = #{scdw,jdbcType=VARCHAR},
+      </if>
+      <if test="ghdw != null" >
+        ghdw = #{ghdw,jdbcType=VARCHAR},
+      </if>
+      <if test="bxnx != null" >
+        bxnx = #{bxnx,jdbcType=VARCHAR},
+      </if>
+      <if test="gmrq != null" >
+        gmrq = #{gmrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scrq != null" >
+        scrq = #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lrrq != null" >
+        lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zrr != null" >
+        zrr = #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        lrr = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="zhzt != null" >
+        zhzt = #{zhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="zp != null" >
+        zp = #{zp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAsset" >
+    update t_asset
+    set zcbh = #{zcbh,jdbcType=VARCHAR},
+      zclb = #{zclb,jdbcType=VARCHAR},
+      zcmc = #{zcmc,jdbcType=VARCHAR},
+      zczt = #{zczt,jdbcType=VARCHAR},
+      zcsl = #{zcsl,jdbcType=INTEGER},
+      jldw = #{jldw,jdbcType=VARCHAR},
+      zcyz = #{zcyz,jdbcType=REAL},
+      xcqd = #{xcqd,jdbcType=VARCHAR},
+      sybm = #{sybm,jdbcType=VARCHAR},
+      cfdd = #{cfdd,jdbcType=VARCHAR},
+      zynx = #{zynx,jdbcType=INTEGER},
+      zcpp = #{zcpp,jdbcType=VARCHAR},
+      jbpz = #{jbpz,jdbcType=VARCHAR},
+      ggxh = #{ggxh,jdbcType=VARCHAR},
+      sbgl = #{sbgl,jdbcType=VARCHAR},
+      fphm = #{fphm,jdbcType=VARCHAR},
+      scdw = #{scdw,jdbcType=VARCHAR},
+      ghdw = #{ghdw,jdbcType=VARCHAR},
+      bxnx = #{bxnx,jdbcType=VARCHAR},
+      gmrq = #{gmrq,jdbcType=TIMESTAMP},
+      scrq = #{scrq,jdbcType=TIMESTAMP},
+      lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      zrr = #{zrr,jdbcType=VARCHAR},
+      lrr = #{lrr,jdbcType=VARCHAR},
+      zhzt = #{zhzt,jdbcType=VARCHAR},
+      zp = #{zp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAssetType" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lbmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lbdm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lbdj" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="jldw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="synx" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sjlb" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ssdl" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, lbmc, lbdm, lbdj, jldw, synx, sjlb, ssdl
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset_type
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset_type
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAssetType" >
+    insert into t_asset_type (id, lbmc, lbdm, 
+      lbdj, jldw, synx, sjlb, 
+      ssdl)
+    values (#{id,jdbcType=VARCHAR}, #{lbmc,jdbcType=VARCHAR}, #{lbdm,jdbcType=VARCHAR}, 
+      #{lbdj,jdbcType=VARCHAR}, #{jldw,jdbcType=VARCHAR}, #{synx,jdbcType=VARCHAR}, #{sjlb,jdbcType=VARCHAR}, 
+      #{ssdl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAssetType" >
+    insert into t_asset_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="lbmc != null" >
+        lbmc,
+      </if>
+      <if test="lbdm != null" >
+        lbdm,
+      </if>
+      <if test="lbdj != null" >
+        lbdj,
+      </if>
+      <if test="jldw != null" >
+        jldw,
+      </if>
+      <if test="synx != null" >
+        synx,
+      </if>
+      <if test="sjlb != null" >
+        sjlb,
+      </if>
+      <if test="ssdl != null" >
+        ssdl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="lbmc != null" >
+        #{lbmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lbdm != null" >
+        #{lbdm,jdbcType=VARCHAR},
+      </if>
+      <if test="lbdj != null" >
+        #{lbdj,jdbcType=VARCHAR},
+      </if>
+      <if test="jldw != null" >
+        #{jldw,jdbcType=VARCHAR},
+      </if>
+      <if test="synx != null" >
+        #{synx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjlb != null" >
+        #{sjlb,jdbcType=VARCHAR},
+      </if>
+      <if test="ssdl != null" >
+        #{ssdl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAssetType" >
+    update t_asset_type
+    <set >
+      <if test="lbmc != null" >
+        lbmc = #{lbmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lbdm != null" >
+        lbdm = #{lbdm,jdbcType=VARCHAR},
+      </if>
+      <if test="lbdj != null" >
+        lbdj = #{lbdj,jdbcType=VARCHAR},
+      </if>
+      <if test="jldw != null" >
+        jldw = #{jldw,jdbcType=VARCHAR},
+      </if>
+      <if test="synx != null" >
+        synx = #{synx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjlb != null" >
+        sjlb = #{sjlb,jdbcType=VARCHAR},
+      </if>
+      <if test="ssdl != null" >
+        ssdl = #{ssdl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAssetType" >
+    update t_asset_type
+    set lbmc = #{lbmc,jdbcType=VARCHAR},
+      lbdm = #{lbdm,jdbcType=VARCHAR},
+      lbdj = #{lbdj,jdbcType=VARCHAR},
+      jldw = #{jldw,jdbcType=VARCHAR},
+      synx = #{synx,jdbcType=VARCHAR},
+      sjlb = #{sjlb,jdbcType=VARCHAR},
+      ssdl = #{ssdl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

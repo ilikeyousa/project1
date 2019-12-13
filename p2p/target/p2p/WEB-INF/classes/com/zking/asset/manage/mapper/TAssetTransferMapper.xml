@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetTransferMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAssetTransfer" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcbh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="zcmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bdxm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bdqz" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="bdhz" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="bdrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="bdyy" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="shr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="bzsm" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zcbh, zcmc, bdxm, bdqz, bdhz, bdrq, bdyy, lrr, shr, lrrq, bzsm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset_transfer
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset_transfer
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAssetTransfer" >
+    insert into t_asset_transfer (id, zcbh, zcmc, 
+      bdxm, bdqz, bdhz, bdrq, 
+      bdyy, lrr, shr, lrrq, 
+      bzsm)
+    values (#{id,jdbcType=VARCHAR}, #{zcbh,jdbcType=VARCHAR}, #{zcmc,jdbcType=VARCHAR}, 
+      #{bdxm,jdbcType=VARCHAR}, #{bdqz,jdbcType=REAL}, #{bdhz,jdbcType=REAL}, #{bdrq,jdbcType=TIMESTAMP}, 
+      #{bdyy,jdbcType=VARCHAR}, #{lrr,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, #{lrrq,jdbcType=TIMESTAMP}, 
+      #{bzsm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAssetTransfer" >
+    insert into t_asset_transfer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zcbh != null" >
+        zcbh,
+      </if>
+      <if test="zcmc != null" >
+        zcmc,
+      </if>
+      <if test="bdxm != null" >
+        bdxm,
+      </if>
+      <if test="bdqz != null" >
+        bdqz,
+      </if>
+      <if test="bdhz != null" >
+        bdhz,
+      </if>
+      <if test="bdrq != null" >
+        bdrq,
+      </if>
+      <if test="bdyy != null" >
+        bdyy,
+      </if>
+      <if test="lrr != null" >
+        lrr,
+      </if>
+      <if test="shr != null" >
+        shr,
+      </if>
+      <if test="lrrq != null" >
+        lrrq,
+      </if>
+      <if test="bzsm != null" >
+        bzsm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zcbh != null" >
+        #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="bdxm != null" >
+        #{bdxm,jdbcType=VARCHAR},
+      </if>
+      <if test="bdqz != null" >
+        #{bdqz,jdbcType=REAL},
+      </if>
+      <if test="bdhz != null" >
+        #{bdhz,jdbcType=REAL},
+      </if>
+      <if test="bdrq != null" >
+        #{bdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bdyy != null" >
+        #{bdyy,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bzsm != null" >
+        #{bzsm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAssetTransfer" >
+    update t_asset_transfer
+    <set >
+      <if test="zcbh != null" >
+        zcbh = #{zcbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zcmc != null" >
+        zcmc = #{zcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="bdxm != null" >
+        bdxm = #{bdxm,jdbcType=VARCHAR},
+      </if>
+      <if test="bdqz != null" >
+        bdqz = #{bdqz,jdbcType=REAL},
+      </if>
+      <if test="bdhz != null" >
+        bdhz = #{bdhz,jdbcType=REAL},
+      </if>
+      <if test="bdrq != null" >
+        bdrq = #{bdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bdyy != null" >
+        bdyy = #{bdyy,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        lrr = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        shr = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bzsm != null" >
+        bzsm = #{bzsm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAssetTransfer" >
+    update t_asset_transfer
+    set zcbh = #{zcbh,jdbcType=VARCHAR},
+      zcmc = #{zcmc,jdbcType=VARCHAR},
+      bdxm = #{bdxm,jdbcType=VARCHAR},
+      bdqz = #{bdqz,jdbcType=REAL},
+      bdhz = #{bdhz,jdbcType=REAL},
+      bdrq = #{bdrq,jdbcType=TIMESTAMP},
+      bdyy = #{bdyy,jdbcType=VARCHAR},
+      lrr = #{lrr,jdbcType=VARCHAR},
+      shr = #{shr,jdbcType=VARCHAR},
+      lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      bzsm = #{bzsm,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

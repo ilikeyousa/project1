@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.asset.manage.mapper.TAssetRepairMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.asset.manage.model.TAssetRepair" >
+    <constructor >
+      <idArg column="id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="djbh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="djmc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="wxfy" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="pjsj" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="bxsj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="wxdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="wxrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="wxsm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="lrrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, djbh, djmc, wxfy, pjsj, bxsj, wxdw, wxrq, wxsm, lrr, lrrq
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_asset_repair
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_asset_repair
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.asset.manage.model.TAssetRepair" >
+    insert into t_asset_repair (id, djbh, djmc, 
+      wxfy, pjsj, bxsj, wxdw, 
+      wxrq, wxsm, lrr, 
+      lrrq)
+    values (#{id,jdbcType=VARCHAR}, #{djbh,jdbcType=VARCHAR}, #{djmc,jdbcType=VARCHAR}, 
+      #{wxfy,jdbcType=REAL}, #{pjsj,jdbcType=REAL}, #{bxsj,jdbcType=TIMESTAMP}, #{wxdw,jdbcType=VARCHAR}, 
+      #{wxrq,jdbcType=TIMESTAMP}, #{wxsm,jdbcType=VARCHAR}, #{lrr,jdbcType=VARCHAR}, 
+      #{lrrq,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.asset.manage.model.TAssetRepair" >
+    insert into t_asset_repair
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="djbh != null" >
+        djbh,
+      </if>
+      <if test="djmc != null" >
+        djmc,
+      </if>
+      <if test="wxfy != null" >
+        wxfy,
+      </if>
+      <if test="pjsj != null" >
+        pjsj,
+      </if>
+      <if test="bxsj != null" >
+        bxsj,
+      </if>
+      <if test="wxdw != null" >
+        wxdw,
+      </if>
+      <if test="wxrq != null" >
+        wxrq,
+      </if>
+      <if test="wxsm != null" >
+        wxsm,
+      </if>
+      <if test="lrr != null" >
+        lrr,
+      </if>
+      <if test="lrrq != null" >
+        lrrq,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="djbh != null" >
+        #{djbh,jdbcType=VARCHAR},
+      </if>
+      <if test="djmc != null" >
+        #{djmc,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfy != null" >
+        #{wxfy,jdbcType=REAL},
+      </if>
+      <if test="pjsj != null" >
+        #{pjsj,jdbcType=REAL},
+      </if>
+      <if test="bxsj != null" >
+        #{bxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wxdw != null" >
+        #{wxdw,jdbcType=VARCHAR},
+      </if>
+      <if test="wxrq != null" >
+        #{wxrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wxsm != null" >
+        #{wxsm,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.asset.manage.model.TAssetRepair" >
+    update t_asset_repair
+    <set >
+      <if test="djbh != null" >
+        djbh = #{djbh,jdbcType=VARCHAR},
+      </if>
+      <if test="djmc != null" >
+        djmc = #{djmc,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfy != null" >
+        wxfy = #{wxfy,jdbcType=REAL},
+      </if>
+      <if test="pjsj != null" >
+        pjsj = #{pjsj,jdbcType=REAL},
+      </if>
+      <if test="bxsj != null" >
+        bxsj = #{bxsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wxdw != null" >
+        wxdw = #{wxdw,jdbcType=VARCHAR},
+      </if>
+      <if test="wxrq != null" >
+        wxrq = #{wxrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wxsm != null" >
+        wxsm = #{wxsm,jdbcType=VARCHAR},
+      </if>
+      <if test="lrr != null" >
+        lrr = #{lrr,jdbcType=VARCHAR},
+      </if>
+      <if test="lrrq != null" >
+        lrrq = #{lrrq,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.asset.manage.model.TAssetRepair" >
+    update t_asset_repair
+    set djbh = #{djbh,jdbcType=VARCHAR},
+      djmc = #{djmc,jdbcType=VARCHAR},
+      wxfy = #{wxfy,jdbcType=REAL},
+      pjsj = #{pjsj,jdbcType=REAL},
+      bxsj = #{bxsj,jdbcType=TIMESTAMP},
+      wxdw = #{wxdw,jdbcType=VARCHAR},
+      wxrq = #{wxrq,jdbcType=TIMESTAMP},
+      wxsm = #{wxsm,jdbcType=VARCHAR},
+      lrr = #{lrr,jdbcType=VARCHAR},
+      lrrq = #{lrrq,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
